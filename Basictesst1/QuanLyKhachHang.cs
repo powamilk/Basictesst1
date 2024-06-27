@@ -10,12 +10,12 @@ namespace Basictesst1
     {
         List<KhachHang> danhSachKhachHang;
 
-        public QuanLyKhachHang() 
-        { 
+        public QuanLyKhachHang()
+        {
             danhSachKhachHang = new List<KhachHang>();
-        }    
+        }
 
- 
+
 
         public void Them()
         {
@@ -32,7 +32,7 @@ namespace Basictesst1
                 double soLuongDaMua = double.Parse(Console.ReadLine());
 
                 if (string.IsNullOrEmpty(hoTen) || string.IsNullOrEmpty(maKh) ||
-                    loaiSanPham < 1 || loaiSanPham > 3 || soLuongDaMua < 0 )
+                    loaiSanPham < 1 || loaiSanPham > 3 || soLuongDaMua < 0)
                 {
                     Console.WriteLine("Du lieu ko hop le, vui long nhap lai");
                     continue;
@@ -49,15 +49,13 @@ namespace Basictesst1
         public void Xoa(string maKh)
         {
             KhachHang khachHang = danhSachKhachHang.Find(kh => kh.MaKh == maKh);
-                if (khachHang == null)
+            if (khachHang == null)
             {
                 Console.WriteLine("khong the tim thay khach hang can xoa");
                 return;
-
-            }    
-                danhSachKhachHang.Remove(khachHang);
+            }
+            danhSachKhachHang.Remove(khachHang);
             Console.WriteLine("da xoa khach hang thanh cong");
-              
         }
 
         public void XuatDanhSach()
@@ -72,26 +70,26 @@ namespace Basictesst1
                 danhSachKhachHang.Sort((x, y) => x.MaKh.CompareTo(y.MaKh));
                 danhSachKhachHang.Sort((x, y) => x.SoLuongDaMua.CompareTo(y.SoLuongDaMua));
 
-               foreach (var khachHang in danhSachKhachHang) 
+                foreach (var khachHang in danhSachKhachHang)
                 {
                     khachHang.inThongTin();
                 }
             }
         }
 
-        public void XuatTheoTongChiPhi( double tuChiPhi, double denChiPhi)
+        public void XuatTheoTongChiPhi(double tuChiPhi, double denChiPhi)
         {
             List<KhachHang> danhSachTheoChiPhi = danhSachKhachHang.FindAll(kh => kh.TinhTongChiPhi()
             >= tuChiPhi && kh.TinhTongChiPhi() <= denChiPhi);
 
-        if(danhSachTheoChiPhi.Count == 0) 
+            if (danhSachTheoChiPhi.Count == 0)
             {
                 Console.WriteLine($"Khong the tim thay khach hang trong khoan [{tuChiPhi} ; {denChiPhi}] ");
             }
             else
             {
                 danhSachTheoChiPhi.Sort((x, y) => x.TinhTongChiPhi().CompareTo(y.TinhTongChiPhi()));
-                foreach (var khachHang in danhSachTheoChiPhi) 
+                foreach (var khachHang in danhSachTheoChiPhi)
                 {
                     khachHang.inThongTin();
                 }
