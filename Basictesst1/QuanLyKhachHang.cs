@@ -46,18 +46,6 @@ namespace Basictesst1
             }
         }
 
-        public void Xoa(string maKh)
-        {
-            KhachHang khachHang = danhSachKhachHang.Find(kh => kh.MaKh == maKh);
-            if (khachHang == null)
-            {
-                Console.WriteLine("khong the tim thay khach hang can xoa");
-                return;
-            }
-            danhSachKhachHang.Remove(khachHang);
-            Console.WriteLine("da xoa khach hang thanh cong");
-        }
-
         public void XuatDanhSach()
         {
             if (danhSachKhachHang.Count == 0)
@@ -76,6 +64,21 @@ namespace Basictesst1
                 }
             }
         }
+
+
+        public void Xoa(string maKh)
+        {
+            KhachHang khachHang = danhSachKhachHang.Find(kh => kh.MaKh == maKh);
+            if (khachHang == null)
+            {
+                Console.WriteLine("khong the tim thay khach hang can xoa");
+                return;
+            }
+            danhSachKhachHang.Remove(khachHang);
+            Console.WriteLine("da xoa khach hang thanh cong");
+        }
+
+        
 
         public void XuatTheoTongChiPhi(double tuChiPhi, double denChiPhi)
         {

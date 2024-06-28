@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Basictesst1
 {
@@ -13,12 +9,12 @@ namespace Basictesst1
         private int loaiSanPham;
         private double soLuongDaMua;
 
-        //contructor ko tham so
-         public KhachHang() 
-        { 
+        // Constructor không tham số
+        public KhachHang()
+        {
         }
 
-        //contructor co tham so
+        // Constructor có tham số
         public KhachHang(string hoTen, string maKh, int loaiSanPham, double soLuongDaMua)
         {
             this.hoTen = hoTen;
@@ -27,20 +23,19 @@ namespace Basictesst1
             this.soLuongDaMua = soLuongDaMua;
         }
 
-        //getter setter
-        public string HoTen { get => HoTen; set => HoTen = value; }
-        public string MaKh { get => MaKh; set => MaKh = value; }
-        public int LoaiSanPham { get => LoaiSanPham ; set => LoaiSanPham = value; }
-        public double SoLuongDaMua { get => SoLuongDaMua; set => SoLuongDaMua = value; }
+        // Getter và Setter
+        public string HoTen { get => hoTen; set => hoTen = value; }
+        public string MaKh { get => maKh; set => maKh = value; }
+        public int LoaiSanPham { get => loaiSanPham; set => loaiSanPham = value; }
+        public double SoLuongDaMua { get => soLuongDaMua; set => soLuongDaMua = value; }
         public object MaKH { get; internal set; }
 
-        //Phuong thuc in thong tin
-
+        // Phương thức in thông tin
         public void inThongTin()
         {
             double donGia = TinhDonGia();
             double tongChiPhi = TinhTongChiPhi();
-            Console.WriteLine($"Ho ten: {hoTen} + Ma Khach Hang: {maKh} + Loai San Pham:{loaiSanPham} + $So luong da mua: {soLuongDaMua} + Don gia : {donGia}");
+            Console.WriteLine($"Ho ten: {hoTen} + Ma Khach Hang: {maKh} + Loai San Pham: {loaiSanPham} + So luong da mua: {soLuongDaMua} + Don gia: {donGia}");
         }
 
         public double TinhTongChiPhi()

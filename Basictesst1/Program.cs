@@ -29,10 +29,14 @@ class Program
                     quanLyKhachHang.XuatDanhSach();
                     break;
                 case 3:
-                    quanLyKhachHang.Xoa();
+                    string maKh = Console.ReadLine();
+                    quanLyKhachHang.Xoa(maKh);
                     break;
                 case 4:
-                    quanLyKhachHang.XuatTheoTongChiPhi();
+                    double tuChiPhi = double.Parse(Console.ReadLine());
+                    Console.Write("Nhập khoảng chi phí đến: ");
+                    double denChiPhi = double.Parse(Console.ReadLine());
+                    quanLyKhachHang.XuatTheoTongChiPhi(tuChiPhi, denChiPhi);
                     break;
                 case 6:
                     thoat = true;
