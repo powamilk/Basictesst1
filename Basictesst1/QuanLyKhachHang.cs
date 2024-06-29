@@ -98,5 +98,28 @@ namespace Basictesst1
                 }
             }
         }
+        public void XuatkhachHangChiPhiCaoNhat()
+        {
+            KhachHang khachHangChiPhiCaoNhat = null;
+            foreach (var khachHang in danhSachKhachHang)
+            {
+                if (khachHang.LoaiSanPham == 1)
+                {
+                    if (khachHangChiPhiCaoNhat == null || khachHang.TinhTongChiPhi() > khachHangChiPhiCaoNhat.TinhTongChiPhi())
+                    {
+                        khachHangChiPhiCaoNhat = khachHang;
+                    }
+                }
+            }
+
+            if (khachHangChiPhiCaoNhat == null)
+            {
+                Console.WriteLine("Hiện chưa có khách hàng nào");
+            }
+            else
+            {
+                khachHangChiPhiCaoNhat.inThongTin();
+            }
+        }
     }
 }

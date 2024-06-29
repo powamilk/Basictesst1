@@ -38,7 +38,10 @@ class Program
                     double denChiPhi = double.Parse(Console.ReadLine());
                     quanLyKhachHang.XuatTheoTongChiPhi(tuChiPhi, denChiPhi);
                     break;
-                case 6:
+                case 5:
+                    quanLyKhachHang.XuatkhachHangChiPhiCaoNhat();
+                    break;
+                case 7:
                     thoat = true;
                     break;
 

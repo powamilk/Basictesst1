@@ -59,7 +59,7 @@ namespace Basictesst1
                     donGia = 100000;
                     break;
                 default:
-                    donGia = 0;
+                    Console.WriteLine("Loại sản phẩm ko hợp lệ")
                     break;
             }
             return donGia;
