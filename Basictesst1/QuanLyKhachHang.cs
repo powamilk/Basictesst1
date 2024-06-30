@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Basictesst1
+﻿namespace Basictesst1
 {
     public class QuanLyKhachHang
     {
@@ -14,8 +8,6 @@ namespace Basictesst1
         {
             danhSachKhachHang = new List<KhachHang>();
         }
-
-
 
         public void Them()
         {
@@ -60,11 +52,10 @@ namespace Basictesst1
 
                 foreach (var khachHang in danhSachKhachHang)
                 {
-                    khachHang.inThongTin();
+                    khachHang.InThongTin();
                 }
             }
         }
-
 
         public void Xoa(string maKh)
         {
@@ -77,8 +68,6 @@ namespace Basictesst1
             danhSachKhachHang.Remove(khachHang);
             Console.WriteLine("da xoa khach hang thanh cong");
         }
-
-        
 
         public void XuatTheoTongChiPhi(double tuChiPhi, double denChiPhi)
         {
@@ -94,10 +83,11 @@ namespace Basictesst1
                 danhSachTheoChiPhi.Sort((x, y) => x.TinhTongChiPhi().CompareTo(y.TinhTongChiPhi()));
                 foreach (var khachHang in danhSachTheoChiPhi)
                 {
-                    khachHang.inThongTin();
+                    khachHang.InThongTin();
                 }
             }
         }
+
         public void XuatkhachHangChiPhiCaoNhat()
         {
             KhachHang khachHangChiPhiCaoNhat = null;
@@ -118,8 +108,33 @@ namespace Basictesst1
             }
             else
             {
-                khachHangChiPhiCaoNhat.inThongTin();
+                khachHangChiPhiCaoNhat.InThongTin();
             }
+        }
+
+        public void ThemKhachHangVIP()
+        {
+            Console.WriteLine("Nhap ho ten khach hang");
+            string hoTen = Console.ReadLine();
+            Console.WriteLine("Nhap Ma Khach Hang");
+            string maKh = Console.ReadLine();
+            Console.WriteLine("Nhap Loai San Pham ");
+            int loaiSanPham = int.Parse(Console.ReadLine());
+            Console.WriteLine("Nhap so luong da mua");
+            double soLuongDaMua = double.Parse(Console.ReadLine());
+            Console.WriteLine("Nhap phan tram giam gia");
+            float phanTramGiamGia = float.Parse(Console.ReadLine());
+
+            if (string.IsNullOrEmpty(hoTen) || string.IsNullOrEmpty(maKh) ||
+                loaiSanPham < 1 || loaiSanPham > 3 || soLuongDaMua < 0 || phanTramGiamGia < 0 || phanTramGiamGia > 100)
+            {
+                Console.WriteLine("Du lieu ko hop le, vui long nhap lai");
+                return;
+            }
+            KhachHangVIP khachHangVIP = new KhachHangVIP(hoTen, maKh, loaiSanPham, soLuongDaMua, phanTramGiamGia);
+            danhSachKhachHang.Add(khachHangVIP);
+
+            khachHangVIP.InThongTin();
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Basictesst1;
 using System;
-using System.ComponentModel.Design;
 
 class Program
 {
@@ -29,26 +28,30 @@ class Program
                     quanLyKhachHang.XuatDanhSach();
                     break;
                 case 3:
+                    Console.WriteLine("Nhap Ma Khach Hang can xoa");
                     string maKh = Console.ReadLine();
                     quanLyKhachHang.Xoa(maKh);
                     break;
                 case 4:
+                    Console.WriteLine("Nhap khoang chi phi tu:");
                     double tuChiPhi = double.Parse(Console.ReadLine());
-                    Console.Write("Nhập khoảng chi phí đến: ");
+                    Console.WriteLine("Nhap khoang chi phi den:");
                     double denChiPhi = double.Parse(Console.ReadLine());
                     quanLyKhachHang.XuatTheoTongChiPhi(tuChiPhi, denChiPhi);
                     break;
                 case 5:
                     quanLyKhachHang.XuatkhachHangChiPhiCaoNhat();
                     break;
+                case 6:
+                    quanLyKhachHang.ThemKhachHangVIP();
+                    break;
                 case 7:
                     thoat = true;
                     break;
-
+                default:
+                    Console.WriteLine("Lua chon khong hop le, vui long chon lai");
+                    break;
             }
         }
-        
-        
-
-    } 
+    }
 }

@@ -31,7 +31,7 @@ namespace Basictesst1
         public object MaKH { get; internal set; }
 
         // Phương thức in thông tin
-        public void inThongTin()
+        public void InThongTin()
         {
             double donGia = TinhDonGia();
             double tongChiPhi = TinhTongChiPhi();
