@@ -28,7 +28,6 @@ namespace Basictesst1
         public string MaKh { get => maKh; set => maKh = value; }
         public int LoaiSanPham { get => loaiSanPham; set => loaiSanPham = value; }
         public double SoLuongDaMua { get => soLuongDaMua; set => soLuongDaMua = value; }
-        public object MaKH { get; internal set; }
 
         // Phương thức in thông tin
         public void InThongTin()
@@ -59,7 +58,7 @@ namespace Basictesst1
                     donGia = 100000;
                     break;
                 default:
-                    Console.WriteLine("Loại sản phẩm ko hợp lệ")
+                    Console.WriteLine("Loại sản phẩm ko hợp lệ");
                     break;
             }
             return donGia;
