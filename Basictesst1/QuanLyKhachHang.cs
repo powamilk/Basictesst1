@@ -47,40 +47,46 @@
             }
             else
             {
-                danhSachKhachHang.Sort((x, y) => x.MaKh.CompareTo(y.MaKh));
-                danhSachKhachHang.Sort((x, y) => x.SoLuongDaMua.CompareTo(y.SoLuongDaMua));
-
-                foreach (var khachHang in danhSachKhachHang)
+                 else
                 {
-                    khachHang.InThongTin();
+                    var sortedDanhSach = danhSachKhachHang
+                        .OrderBy(kh => kh.MaKh)
+                        .ThenBy(kh => kh.SoLuongDaMua)
+                        .ToList();
+
+                    foreach (var khachHang in sortedDanhSach)
+                    {
+                        khachHang.InThongTin();
+                    }
                 }
             }
         }
 
         public void Xoa(string maKh)
         {
-            KhachHang khachHang = danhSachKhachHang.Find(kh => kh.MaKh == maKh);
+            KhachHang khachHang = danhSachKhachHang.FirstOrDefault(kh => kh.MaKh == maKh);
             if (khachHang == null)
             {
-                Console.WriteLine("khong the tim thay khach hang can xoa");
+                Console.WriteLine("Không thể tìm thấy khách hàng cần xóa");
                 return;
             }
             danhSachKhachHang.Remove(khachHang);
-            Console.WriteLine("da xoa khach hang thanh cong");
+            Console.WriteLine("Đã xóa khách hàng thành công");
         }
 
         public void XuatTheoTongChiPhi(double tuChiPhi, double denChiPhi)
         {
-            List<KhachHang> danhSachTheoChiPhi = danhSachKhachHang.FindAll(kh => kh.TinhTongChiPhi()
-            >= tuChiPhi && kh.TinhTongChiPhi() <= denChiPhi);
+            var danhSachTheoChiPhi = danhSachKhachHang
+                .Where(kh => kh.TinhTongChiPhi() >= tuChiPhi && kh.TinhTongChiPhi() <= denChiPhi)
+                .OrderBy(kh => kh.TinhTongChiPhi())
+                .ToList();
 
-            if (danhSachTheoChiPhi.Count == 0)
+            if (!danhSachTheoChiPhi.Any())
             {
-                Console.WriteLine($"Khong the tim thay khach hang trong khoan [{tuChiPhi} ; {denChiPhi}] ");
+                Console.WriteLine($"Không thể tìm thấy khách hàng trong khoảng [{tuChiPhi} ; {denChiPhi}]");
             }
             else
             {
-                danhSachTheoChiPhi.Sort((x, y) => x.TinhTongChiPhi().CompareTo(y.TinhTongChiPhi()));
                 foreach (var khachHang in danhSachTheoChiPhi)
                 {
                     khachHang.InThongTin();

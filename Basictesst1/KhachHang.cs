@@ -34,13 +34,13 @@ namespace Basictesst1
         {
             double donGia = TinhDonGia();
             double tongChiPhi = TinhTongChiPhi();
-            Console.WriteLine($"Ho ten: {hoTen} + Ma Khach Hang: {maKh} + Loai San Pham: {loaiSanPham} + So luong da mua: {soLuongDaMua} + Don gia: {donGia}");
+            Console.WriteLine($"Ho ten: {hoTen} + Ma Khach Hang: {maKh} + Loai San Pham: {loaiSanPham} + So luong da mua: {soLuongDaMua} + Don gia: {donGia} + Tổng chi phí: {tongChiPhi}");
         }
 
         public double TinhTongChiPhi()
         {
             double donGia = TinhDonGia();
-            return soLuongDaMua + donGia;
+            return soLuongDaMua * donGia;
         }
 
         public double TinhDonGia()
