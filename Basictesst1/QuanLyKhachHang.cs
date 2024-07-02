@@ -51,7 +51,7 @@
                 {
                     var sortedDanhSach = danhSachKhachHang
                         .OrderBy(kh => kh.MaKh)
-                        .ThenBy(kh => kh.SoLuongDaMua)
+                        .ThenByDescending(kh => kh.SoLuongDaMua)
                         .ToList();
 
                     foreach (var khachHang in sortedDanhSach)
